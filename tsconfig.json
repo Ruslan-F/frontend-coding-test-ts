@@ -10,7 +10,7 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "types": ["vue3-toastify/global"],
+    "types": ["vue3-toastify/global", "vitest/globals"],
     "lib": ["esnext", "dom"],
     "paths": {
       "@/*": ["./src/*"],
@@ -20,7 +20,13 @@
       "@use/*": ["./src/shared/use/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/components/layout/LayoutMain.test.js"
+  ],
   "exclude": ["node_modules", "public"],
   "references": [
     {

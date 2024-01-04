@@ -12,12 +12,14 @@
           <div class="flex ml-10 items-center align-middle">
             <div class="flex space-x-4">
               <router-link
+                data-testid="link-home"
                 to="/"
                 class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 exact-active-class="bg-gray-900 text-white"
                 >Home</router-link
               >
               <router-link
+                data-testid="link-result"
                 to="/result"
                 class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 active-class="bg-gray-900 text-white"
@@ -30,9 +32,9 @@
     </div>
   </nav>
   <main class="flex justify-center">
-    <router-view v-slot="{ Component }">
+    <router-view v-slot="slot">
       <keep-alive>
-        <component :is="Component" />
+        <component :is="slot?.Component" />
       </keep-alive>
     </router-view>
   </main>

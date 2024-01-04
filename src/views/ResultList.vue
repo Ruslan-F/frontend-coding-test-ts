@@ -21,6 +21,7 @@
             <th class="w-1/6">
               <input
                 v-model="form.code"
+                data-testid="input-iso"
                 type="text"
                 placeholder="ISO2"
                 class="w-11/12 rounded-sm bg-gray-200 px-1"
@@ -66,6 +67,7 @@
       </table>
       <div class="flex-row justify-start gap-3 flex mt-3">
         <button
+          data-testid="button-refresh"
           :disabled="loading"
           class="shadow-zinc-700 shadow hover:bg-slate-400 transition-all p-2 grow disabled:hover:bg-transparent disabled:opacity-50"
           :class="{ disabled: !dirty }"
@@ -80,6 +82,7 @@
           Refresh
         </button>
         <button
+          data-testid="button-clear"
           :disabled="!dirty"
           class="shadow-zinc-700 shadow hover:bg-slate-400 transition-all p-2 grow disabled:hover:bg-transparent disabled:opacity-50"
           :class="{ disabled: !dirty }"
@@ -116,7 +119,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 const router = useRouter()
 
-const formDebounce = ref<number>(0)
+const formDebounce = ref<NodeJS.Timeout>()
 const loading = ref(false)
 const countries = ref<Country[]>([])
 const form = ref({ code: '', name: '' })
