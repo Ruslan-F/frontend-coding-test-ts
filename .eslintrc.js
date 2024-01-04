@@ -57,7 +57,11 @@ module.exports = {
     ],
 
     // Enforce v-bind directive usage in long form.
-    'vue/v-bind-style': ['error', 'longform'],
+    // 'vue/v-bind-style': ['error', 'longform'],
+    /*
+     I don't know what the purpose for this rule was - to see if I use eslint plugin or how I will overcome the error with some inliner etc.
+     IMO the easiest / RIGHT thing to do - is to remove the root of the promlem - the rule itself.
+    */
 
     // Enforce v-on directive usage in long form.
     'vue/v-on-style': ['error', 'longform'],
@@ -73,6 +77,7 @@ module.exports = {
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
       },
+      typescript: {}, // this loads <rootdir>/tsconfig.json to eslint
     },
     // Adding typescript file types, because airbnb doesn't allow this by default.
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx', '.vue'],

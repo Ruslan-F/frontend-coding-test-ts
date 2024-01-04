@@ -5,16 +5,32 @@ import {
   Router,
   RouteRecordRaw,
 } from 'vue-router'
-import LayoutMain from '../components/layout/LayoutMain.vue'
-import Error from '../views/Error.vue'
-import Home from '../views/Home.vue'
+import LayoutMain from '@/components/layout/LayoutMain.vue'
+import Error from '@/views/Error.vue'
+import Home from '@/views/Home.vue'
+import ResultList from '@/views/ResultList.vue'
+import ResultDetails from '@/views/ResultDetails.vue'
 
 const mainRoutes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'Home',
-    props: true,
+    props: false,
     component: Home,
+  },
+  {
+    path: '/result',
+    name: 'Result',
+    props: false,
+    component: ResultList,
+    children: [
+      {
+        path: '/result/:code',
+        name: 'Result Details',
+        props: false,
+        component: ResultDetails,
+      },
+    ],
   },
 ]
 
@@ -23,12 +39,12 @@ const routes: RouteRecordRaw[] = [
     path: '/error',
     alias: '/:pathMatch(.*)*',
     name: 'Error',
-    props: true,
+    props: false,
     component: Error,
   },
   {
     path: '/',
-    props: true,
+    props: false,
     component: LayoutMain,
     children: mainRoutes,
   },

@@ -10,9 +10,21 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "lib": ["esnext", "dom"]
+    "types": ["vue3-toastify/global"],
+    "lib": ["esnext", "dom"],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@assets/*": ["./src/shared/assets/*"],
+      "@cmp/*": ["./src/shared/cmp/*"],
+      "@stores/*": ["./src/shared/stores/*"],
+      "@use/*": ["./src/shared/use/*"]
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "exclude": ["node_modules", "public"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }
